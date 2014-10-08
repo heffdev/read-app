@@ -41,13 +41,14 @@ var app = {
 	onDeviceReady : function() {
 		app.deviceReadyDeferred.resolve();
 		
+
 		// setup a new canvas for drawing wait for device init
-	    setTimeout(function(){
+		setTimeout(function(){
 		   newCanvas();
-	    }, 1000);
+		}, 1000);
 		
 		// prevent footer to toggle on touch
-		$("[data-role=footer]").fixedtoolbar({ tapToggle: false });
+		//$("[data-role=footer]").fixedtoolbar({ tapToggle: false });
 		
 		// reset palette selection (css) and select the clicked color for canvas strokeStyle
 		$(".palette").click(function(){

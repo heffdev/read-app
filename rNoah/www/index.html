@@ -3,11 +3,22 @@
 <head>
     <title>Teaching your kids to have fun reading</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+	<!-- 
 	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile-1.2.0.min.css" />
 	<script src="lib/jquery/jquery-1.8.2.min.js"></script>
 	<script src="lib/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="phonegap.js"></script>
+	 -->
+	 
+	<link rel="stylesheet" href="./css/jquery.mobile-1.4.3.css"/>
+	<link rel="stylesheet" href="./css/index.css"/>
+    <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+
+	
     <style type="text/css">
 	  body {
 		margin:0px;
@@ -159,14 +170,19 @@ $.fn.drawMouse = function() {
 	</script>
 </head>
 <body>
-<div data-role="page" id="page1">
-    <div data-theme="a" data-role="header">
-        <h3>r Noah</h3>
-		<a id="new" data-role="button" data-theme="b" class="ui-btn-left">New</a>
-    </div>
-    <div id="content"><p style="text-align:center">Loading Canvas...</p></div>
-    <div data-theme="a" data-role="footer" data-position="fixed">
-		<div class="palette-case">
+
+
+ <div data-role="page" id="page1">
+        <div data-role="header" >
+            <h3>r Noah</h3>
+            <a href="#new" class="ui-btn" id="new">New</a>
+        </div><!-- /header -->
+
+        <div data-role="content" id="content" ><p style="text-align:center">Loading Canvas...</p></div><!-- /content -->
+		
+        <div data-role="footer" data-position="fixed" id="colors">
+        	<div class="words"><p style="text-align:center">Colors</p></div>
+            <div class="palette-case">
 			<div class="palette-box">
 				<div class="palette white"></div>
 			</div>	
@@ -183,8 +199,11 @@ $.fn.drawMouse = function() {
 				<div class="palette black"></div>
 			</div>		
 			<div style="clear:both"></div>
-		</div>
-    </div>
-</div> 
+        </div><!-- /footer -->
+    </div><!-- /page -->
+ </div>
+ <script>
+
+ </script>
 </body>
 </html>
