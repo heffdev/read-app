@@ -40,6 +40,30 @@ var app = {
 	// deviceready Event Handler
 	onDeviceReady : function() {
 		app.deviceReadyDeferred.resolve();
+		
+		// setup a new canvas for drawing wait for device init
+	    setTimeout(function(){
+		   newCanvas();
+	    }, 1000);
+		
+		// prevent footer to toggle on touch
+		$("[data-role=footer]").fixedtoolbar({ tapToggle: false });
+		
+		// reset palette selection (css) and select the clicked color for canvas strokeStyle
+		$(".palette").click(function(){
+			$(".palette").css("border-color", "#777");
+			$(".palette").css("border-style", "solid");
+			$(this).css("border-color", "#fff");
+			$(this).css("border-style", "dashed");
+			color = $(this).css("background-color");
+			ctx.beginPath();
+			ctx.strokeStyle = color;
+		});
+	    
+		// link the new button with newCanvas() function
+		$("#new").click(function() {
+			newCanvas();
+		});
 	},
 	// jQM and PhoneGap initialized
 	// place app initialization code here
