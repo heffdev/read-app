@@ -24,6 +24,7 @@ var app = {
 		this.bindEvents();
 		$.when(this.deviceReadyDeferred, this.jqmReadyDeferred).then(
 				this.frameworksInitialized);
+		
 	},
 	// Bind Event Listeners
 	//
@@ -34,6 +35,7 @@ var app = {
 		$(document).on("mobileinit", function() {
 			app.jqmReadyDeferred.resolve();
 		});
+		
 	},
 	// deviceready Event Handler
 	onDeviceReady : function() {
@@ -47,4 +49,6 @@ var app = {
 };
 
 app.initialize();
+
+
     
