@@ -84,14 +84,15 @@ var ctx, color = "#000";
 // function to setup a new canvas for drawing
 function newCanvas(){
 	//define and resize canvas
-    $("#content").height($(window).height()-90);
-    var canvas = '<canvas id="canvas" width="'+$(window).width()+'" height="'+($(window).height()-90)+'"></canvas>';
-	$("#content").html(canvas);
+	var contentHeight = $(window).height()*.95;
+    $("#content").height(contentHeight);
+    var canvas = '<canvas id="canvas" width="'+$(window).width()+'" height="'+(contentHeight*.75)+'"></canvas>';
+	$("#theCanvas").html(canvas);
     
     // setup canvas
 	ctx=document.getElementById("canvas").getContext("2d");
 	ctx.strokeStyle = color;
-	ctx.lineWidth = 5;	
+	ctx.lineWidth = 2;	
 	
 	// setup to trigger drawing on mouse or touch
 	$("#canvas").drawTouch();
@@ -178,10 +179,15 @@ $.fn.drawMouse = function() {
             <a href="#new" class="ui-btn" id="new">New</a>
         </div><!-- /header -->
 
-        <div data-role="content" id="content" ><p style="text-align:center">Loading Canvas...</p></div><!-- /content -->
-		
+        <div data-role="content" id="content" >
+        <div id="theCanvas"></div>
+                <div id="wordBlock" style="text-align:center;font-size:xx-large;font-weight:bolder;font-style:normal;margin:0px;padding:10%;">
+                    C&nbsp;&nbsp;a&nbsp;&nbsp;r
+                </div>
+        </div><!-- /content -->
+	
         <div data-role="footer" data-position="fixed" id="colors" data-tap-toggle="false">
-        	<div class="words"><p style="text-align:center">Colors</p></div>
+        	
             <div class="palette-case">
 			<div class="palette-box">
 				<div class="palette white"></div>
