@@ -171,7 +171,10 @@ $.fn.drawMouse = function() {
 	</script>
 </head>
 <body>
-
+ <audio id="A_Sound" src="sound/A.m4a"></audio>
+ <audio id="B_Sound" src="sound/B.m4a"></audio>
+ <audio id="C_Sound" src="sound/C.m4a"></audio>
+ <audio id="R_Sound" src="sound/R.m4a"></audio>
 
  <div data-role="page" id="page1">
         <div data-role="header" >
@@ -181,8 +184,10 @@ $.fn.drawMouse = function() {
 
         <div data-role="content" id="content" >
         <div id="theCanvas"></div>
+       
                 <div id="wordBlock" style="text-align:center;font-size:xx-large;font-weight:bolder;font-style:normal;margin:0px;padding:10%;">
-                    C&nbsp;&nbsp;a&nbsp;&nbsp;r
+                  
+                   <img src="img/C_above.png" height="56" width="56" onclick="document.getElementById('C_Sound').play()"><img src="img/A_above.png" height="56" width="56" onclick="document.getElementById('A_Sound').play()"><img src="img/R_above.png" height="56" width="56" onclick="document.getElementById('R_Sound').play()">
                 </div>
         </div><!-- /content -->
 	
