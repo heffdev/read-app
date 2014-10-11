@@ -1051,6 +1051,7 @@ eraseAllButton.onclick = function (e) {
    drawGrid(drawingContext, GRID_LINE_COLOR, 10, 10);
    saveDrawingSurface();
    rubberbandW = rubberbandH = 0;
+   newWord();
 };
 
 curveInstructionsOkayButton.onclick = function (e) {

@@ -71,6 +71,24 @@
 				//$("#drawingCanvas").html(drawingCanvas);
 
 				}
+				
+				function newWord() {
+
+	numberOfWords = Object.keys(words.word).length;
+	var useWord = Math.floor(Math.random() * numberOfWords)
+	var wordBlockContent = "";
+	$.each(words.word, function(i, v) {
+		if(useWord === i) {
+			var letters = v.letters.split(",")
+			for(j = 0; j < letters.length; j++) {
+				wordBlockContent += '<img src="img/' + letters[j] + '_above.png" height="72" width="72" onclick="document.getElementById(\'' + letters[j] + '_Sound\').play()">';
+			}
+			
+		}
+		$("#wordBlock").html(wordBlockContent);
+	});
+	
+}
 
 		</script>
 
@@ -214,6 +232,33 @@
    </head>
 
    <body>
+   <audio id="A_Sound" src="sound/A.m4a"></audio>
+ <audio id="B_Sound" src="sound/B.m4a"></audio>
+ <audio id="C_Sound" src="sound/C.m4a"></audio>
+ <audio id="D_Sound" src="sound/D.m4a"></audio>
+ <audio id="E_Sound" src="sound/E.m4a"></audio>
+ <audio id="F_Sound" src="sound/F.m4a"></audio>
+ <audio id="G_Sound" src="sound/G.m4a"></audio>
+ <audio id="H_Sound" src="sound/H.m4a"></audio>
+ <audio id="I_Sound" src="sound/I.m4a"></audio>
+ <audio id="J_Sound" src="sound/J.m4a"></audio>
+ <audio id="K_Sound" src="sound/K.m4a"></audio>
+ <audio id="L_Sound" src="sound/L.m4a"></audio>
+ <audio id="M_Sound" src="sound/M.m4a"></audio>
+ <audio id="N_Sound" src="sound/N.m4a"></audio>
+ <audio id="O_Sound" src="sound/O.m4a"></audio>
+ <audio id="P_Sound" src="sound/P.m4a"></audio>
+ <audio id="Q_Sound" src="sound/Q.m4a"></audio> 
+ <audio id="R_Sound" src="sound/R.m4a"></audio>
+ <audio id="S_Sound" src="sound/S.m4a"></audio>
+ <audio id="T_Sound" src="sound/T.m4a"></audio>
+ <audio id="U_Sound" src="sound/U.m4a"></audio>
+ <audio id="V_Sound" src="sound/V.m4a"></audio>
+ <audio id="W_Sound" src="sound/W.m4a"></audio>
+ <audio id="X_Sound" src="sound/X.m4a"></audio>
+ <audio id="Y_Sound" src="sound/Y.m4a"></audio>
+ <audio id="Z_Sound" src="sound/Z.m4a"></audio>
+   
     <div id='controls'>
        Stroke: <select id='strokeStyleSelect'>
                         <option value='red'>red</option>
@@ -254,7 +299,7 @@
                       <option value='6.0'>6.0</option>
                    </select>
 
-      <input id='eraseAllButton' type='button' value='Erase all'/>
+      <input id='eraseAllButton' type='button' value='New'/>
       <input id='snapshotButton' type='button' value='Take snapshot'/>
       <span id='snapshotInstructions'>Drag the image to your desktop (or Right-click to save to disk)</span>
     </div>
@@ -268,7 +313,7 @@
     <canvas id='drawingCanvas' width='650' height='670'>
       Canvas not supported
     </canvas>
-
+	<div id="wordBlock" style="text-align:center;margin:0px;padding:10%;"></div>
     <div id='keyboard'></div>
     
     <div id='curveInstructions' class='floatingControls'>

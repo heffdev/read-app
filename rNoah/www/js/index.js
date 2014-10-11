@@ -46,6 +46,7 @@ var app = {
 		setTimeout(function(){
 		   //newCanvas();
 		   //initCanvases();
+			newWord();
 		}, 1000);
 		
 		// prevent footer to toggle on touch
