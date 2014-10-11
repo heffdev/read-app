@@ -44,7 +44,8 @@ var app = {
 
 		// setup a new canvas for drawing wait for device init
 		setTimeout(function(){
-		   newCanvas();
+		   //newCanvas();
+		   //initCanvases();
 		}, 1000);
 		
 		// prevent footer to toggle on touch

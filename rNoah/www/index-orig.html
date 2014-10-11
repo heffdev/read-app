@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+    <title>Teaching your kids to have fun reading</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+	<!-- 
+	<link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile-1.2.0.min.css" />
+	<script src="lib/jquery/jquery-1.8.2.min.js"></script>
+	<script src="lib/jquery.mobile/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="phonegap.js"></script>
+	 -->
+	 
+	<link rel="stylesheet" href="./css/jquery.mobile-1.4.3.css"/>
+	<link rel="stylesheet" href="./css/index.css"/>
+    <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
+    <script type="text/javascript" src="./js/words.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
+
+	
+    <style type="text/css">
+	  body {
+		margin:0px;
+		width:100%;
+		height:100%;
+		overflow:hidden;
+        /* prevent text selection on ui */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        /* prevent scrolling in windows phone */
+        -ms-touch-action: none;
+	  }
+	  #content {
+          overflow:hidden;
+		  background-color:#ddd;
+	  }
+	  #canvas{
+		cursor:crosshair ;
+        background-color:#fff;
+	  }
+	  .palette-case {
+		width:260px;
+		margin:auto;
+		text-align:center;
+	  }
+	  .palette-box {
+		float:left;
+		padding:2px 6px 2px 6px;
+	  }
+	  .palette {
+		border:2px solid #777;
+		height:36px;
+		width:36px;
+	  }
+	  .red{
+		background-color:#c22;
+	  }
+	  .blue{
+		background-color:#22c;
+	  }
+	  .green{
+		background-color:#2c2;
+	  }
+	  .white{
+		background-color:#fff;
+	  }
+	  .black{
+		background-color:#000;
+		border:2px dashed #fff;
+	  }
+    </style>
+	<script type="text/javascript">
+	
+var ctx, color = "#000";	
+
+//$(document).ready(function () {
+	
+
+//});
+
+// function to setup a new canvas for drawing
+function newCanvas(){
+	//define and resize canvas
+	var contentHeight = $(window).height()*.95;
+    $("#content").height(contentHeight);
+    var canvas = '<canvas id="canvas" width="'+$(window).width()+'" height="'+(contentHeight*.75)+'"></canvas>';
+	$("#theCanvas").html(canvas);
+	
+    
+    // setup canvas
+	ctx=document.getElementById("canvas").getContext("2d");
+	ctx.strokeStyle = color;
+	ctx.lineWidth = 2;	
+	
+	// setup to trigger drawing on mouse or touch
+	$("#canvas").drawTouch();
+    $("#canvas").drawPointer();
+	$("#canvas").drawMouse();
+	newWord();
+}
+
+// prototype to	start drawing on touch using canvas moveTo and lineTo
+$.fn.drawTouch = function() {
+	var start = function(e) {
+        e = e.originalEvent;
+		ctx.beginPath();
+		x = e.changedTouches[0].pageX;
+		y = e.changedTouches[0].pageY-44;
+		ctx.moveTo(x,y);
+	};
+	var move = function(e) {
+		e.preventDefault();
+        e = e.originalEvent;
+		x = e.changedTouches[0].pageX;
+		y = e.changedTouches[0].pageY-44;
+		ctx.lineTo(x,y);
+		ctx.stroke();
+	};
+	$(this).on("touchstart", start);
+	$(this).on("touchmove", move);	
+}; 
+    
+// prototype to	start drawing on pointer(microsoft ie) using canvas moveTo and lineTo
+$.fn.drawPointer = function() {
+	var start = function(e) {
+        e = e.originalEvent;
+		ctx.beginPath();
+		x = e.pageX;
+		y = e.pageY-44;
+		ctx.moveTo(x,y);
+	};
+	var move = function(e) {
+		e.preventDefault();
+        e = e.originalEvent;
+		x = e.pageX;
+		y = e.pageY-44;
+		ctx.lineTo(x,y);
+		ctx.stroke();
+    };
+	$(this).on("MSPointerDown", start);
+	$(this).on("MSPointerMove", move);
+};        
+
+// prototype to	start drawing on mouse using canvas moveTo and lineTo
+$.fn.drawMouse = function() {
+	var clicked = 0;
+	var start = function(e) {
+		clicked = 1;
+		ctx.beginPath();
+		x = e.pageX;
+		y = e.pageY-44;
+		ctx.moveTo(x,y);
+	};
+	var move = function(e) {
+		if(clicked){
+			x = e.pageX;
+			y = e.pageY-44;
+			ctx.lineTo(x,y);
+			ctx.stroke();
+		}
+	};
+	var stop = function(e) {
+		clicked = 0;
+	};
+	$(this).on("mousedown", start);
+	$(this).on("mousemove", move);
+	$(window).on("mouseup", stop);
+};
+
+function newWord() {
+
+	numberOfWords = Object.keys(words.word).length;
+	var useWord = Math.floor(Math.random() * numberOfWords)
+	var wordBlockContent = "";
+	$.each(words.word, function(i, v) {
+		if(useWord === i) {
+			var letters = v.letters.split(",")
+			for(j = 0; j < letters.length; j++) {
+				wordBlockContent += '<img src="img/' + letters[j] + '_above.png" height="56" width="56" onclick="document.getElementById(\'' + letters[j] + '_Sound\').play()">';
+			}
+			
+		}
+		$("#wordBlock").html(wordBlockContent);
+	});
+	
+}
+	</script>
+</head>
+<body>
+ <audio id="A_Sound" src="sound/A.m4a"></audio>
+ <audio id="B_Sound" src="sound/B.m4a"></audio>
+ <audio id="C_Sound" src="sound/C.m4a"></audio>
+ <audio id="D_Sound" src="sound/D.m4a"></audio>
+ <audio id="E_Sound" src="sound/E.m4a"></audio>
+ <audio id="F_Sound" src="sound/F.m4a"></audio>
+ <audio id="G_Sound" src="sound/G.m4a"></audio>
+ <audio id="H_Sound" src="sound/H.m4a"></audio>
+ <audio id="I_Sound" src="sound/I.m4a"></audio>
+ <audio id="J_Sound" src="sound/J.m4a"></audio>
+ <audio id="K_Sound" src="sound/K.m4a"></audio>
+ <audio id="L_Sound" src="sound/L.m4a"></audio>
+ <audio id="M_Sound" src="sound/M.m4a"></audio>
+ <audio id="N_Sound" src="sound/N.m4a"></audio>
+ <audio id="O_Sound" src="sound/O.m4a"></audio>
+ <audio id="P_Sound" src="sound/P.m4a"></audio>
+ <audio id="Q_Sound" src="sound/Q.m4a"></audio> 
+ <audio id="R_Sound" src="sound/R.m4a"></audio>
+ <audio id="S_Sound" src="sound/S.m4a"></audio>
+ <audio id="T_Sound" src="sound/T.m4a"></audio>
+ <audio id="U_Sound" src="sound/U.m4a"></audio>
+ <audio id="V_Sound" src="sound/V.m4a"></audio>
+ <audio id="W_Sound" src="sound/W.m4a"></audio>
+ <audio id="X_Sound" src="sound/X.m4a"></audio>
+ <audio id="Y_Sound" src="sound/Y.m4a"></audio>
+ <audio id="Z_Sound" src="sound/Z.m4a"></audio>
+
+ <div data-role="page" id="page1">
+        <div data-role="header" >
+            <h3>r Noah</h3>
+            <a href="#new" class="ui-btn" id="new">New</a>
+        </div><!-- /header -->
+
+        <div data-role="content" id="content" >
+        <div id="theCanvas"></div>
+       
+                <div id="wordBlock" style="text-align:center;margin:0px;padding:10%;">
+                  
+                   
+                </div>
+        </div><!-- /content -->
+	
+        <div data-role="footer" data-position="fixed" id="colors" data-tap-toggle="false">
+        	
+            <div class="palette-case">
+			<div class="palette-box">
+				<div class="palette white"></div>
+			</div>	
+			<div class="palette-box">
+				<div class="palette red"></div>
+			</div>
+			<div class="palette-box">
+				<div class="palette blue"></div>
+			</div>
+			<div class="palette-box">
+				<div class="palette green"></div>
+			</div>
+			<div class="palette-box">
+				<div class="palette black"></div>
+			</div>		
+			<div style="clear:both"></div>
+        </div><!-- /footer -->
+    </div><!-- /page -->
+ </div>
+ <script>
+
+ </script>
+</body>
+</html>
