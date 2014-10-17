@@ -263,9 +263,11 @@
 <div data-role="page" id="page1">
 <div data-role="header" style="overflow:hidden;">
 <h1>R<span style="text-transform: lowercase;">ead!</span>&nbsp; N<span style="text-transform: lowercase;">oah</span> R<span style="text-transform: lowercase;">ead!</span></h1>
-    <a href="#" data-icon="gear" id="eraseAllButton" class="ui-btn-right">New</a>
+    <a href="#" data-icon="action" id="eraseAllButton" class="ui-btn-right">New</a>
+    <a href="#" data-icon="delete" id="clearButton" class="ui-btn-left">Clear</a>
     <div data-role="navbar">
         <ul>
+        <li>&nbsp;</li> <li>&nbsp;</li> <li>&nbsp;</li> <li>&nbsp;</li>
             <li>
             <select name="strokeStyleSelect" id="strokeStyleSelect" data-native-menu="false" >
             			<option>COLOR...</option>
@@ -333,7 +335,7 @@ $(document).on("pagecreate", function(){
             //alert("ID = " + $(this).text());
                // var imageURL = opts.eq(index).data("./img/A_above.png");
                 var imageURL = "img/" + $(this).text() +  ".png";
-                var imgElem = '<img src=' + imageURL + ' width="24px" height="24px" />';
+                var imgElem = '<img src=' + imageURL + ' width="48px" height="48px" />';
                 $(this).find("a").prepend(imgElem + "  ");
             }
             

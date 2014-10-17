@@ -1046,14 +1046,18 @@ drawingContext.drawImage(c, 0, 0);
 };
 
 eraseAllButton.onclick = function (e) {
-   drawingContext.clearRect(0,0,
-                            drawingCanvas.width,
-                            drawingCanvas.height);
-   drawGrid(drawingContext, GRID_LINE_COLOR, 10, 10);
-   saveDrawingSurface();
-   rubberbandW = rubberbandH = 0;
    newWord();
+   $('#clearButton').trigger("click");
 };
+clearButton.onclick = function (e) {
+	   drawingContext.clearRect(0,0,
+	                            drawingCanvas.width,
+	                            drawingCanvas.height);
+	   drawGrid(drawingContext, GRID_LINE_COLOR, 10, 10);
+	   saveDrawingSurface();
+	   rubberbandW = rubberbandH = 0;
+	   
+	};
 
 curveInstructionsOkayButton.onclick = function (e) {
    curveInstructions.style.display = 'none';
