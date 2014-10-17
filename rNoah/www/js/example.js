@@ -1062,7 +1062,7 @@ curveInstructionsNoMoreButton.onclick = function (e) {
    curveInstructions.style.display = 'none';
    showCurveInstructions = false;
 };
-
+/*
 snapshotButton.onclick = function (e) {
    var dataUrl;
 
@@ -1085,7 +1085,7 @@ snapshotButton.onclick = function (e) {
       snapshotInstructions.style.display = 'none';
    }
 };
-
+*/
 function drawBackground() {
    backgroundContext.canvas.width = drawingContext.canvas.width;
    backgroundContext.canvas.height = drawingContext.canvas.height;

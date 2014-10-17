@@ -228,6 +228,7 @@
               -moz-box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 4px;
               box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 4px;
          }
+
       </style>
    </head>
 
@@ -264,9 +265,9 @@
 <h1>I'm a header</h1>
     <a href="#" data-icon="gear" id="eraseAllButton" class="ui-btn-right">New</a>
     <div data-role="navbar">
-        <ul id="strokeColor">
+        <ul>
             <li>
-            <select name="strokeStyleSelect" id="strokeStyleSelect" data-native-menu="true">
+            <select name="strokeStyleSelect" id="strokeStyleSelect" data-native-menu="false">
                         <option style="background-color:red" value='red'>Red</option>
                         <option style="background-color:green"value='green'>Green</option>
                         <option style="background-color:blue" value='blue'>Blue</option>
@@ -279,7 +280,7 @@
             
             </li>
             <li>
-            <select id='fillStyleSelect'>
+            <select id='fillStyleSelect' id="fillStyleSelect" data-native-menu="false">
                       <option value='red'>red</option>
                       <option value='rgba(255,0,0,0.5)'>semi-transparent red</option>
                       <option value='green'>green</option>
@@ -298,7 +299,7 @@
                       <option value='rgba(255,0,255,0.5)'>semi-transparent purple</option>
                    </select>
             </li>
-            <li><select id='lineWidthSelect'>
+            <li><select id='lineWidthSelect' id="lineWidthSelect" data-native-menu="false">
                       <option value='1.0'>1.0</option>
                       <option value='2.0'>2.0</option>
                       <option value='3.0'>3.0</option>
@@ -333,7 +334,8 @@
       <input id='curveInstructionsNoMoreButton' type='button' value='Do not show this again'/>
     </div>
     </div>
-    </div><!-- //page -->
+	</div><!-- //page -->
+
     <script src='js/keyboard.js'></script>
     <script src='js/example.js'></script>
      <script>
