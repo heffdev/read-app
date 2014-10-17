@@ -36,11 +36,11 @@
       <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
       <meta name='apple-mobile-web-app-capable' content='yes'/>
       <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'/>
-      	<!-- link rel="stylesheet" href="./css/jquery.mobile-1.4.3.css"/ -->
+      	<link rel="stylesheet" href="./css/jquery.mobile-1.4.3.css"/>
 	<link rel="stylesheet" href="./css/index.css"/>
     <script type="text/javascript" src="./js/jquery-2.1.1.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <!-- script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script -->
+    <script type="text/javascript" src="./js/jquery.mobile-1.4.3.js"></script>
     <script type="text/javascript" src="./js/words.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
 
@@ -258,20 +258,28 @@
  <audio id="X_Sound" src="sound/X.mp3"></audio>
  <audio id="Y_Sound" src="sound/Y.mp3"></audio>
  <audio id="Z_Sound" src="sound/Z.mp3"></audio>
-   
-    <div id='controls'>
-       Stroke: <select id='strokeStyleSelect'>
-                        <option value='red'>red</option>
-                        <option value='green'>green</option>
-                        <option value='blue'>blue</option>
-                        <option value='orange'>orange</option>
-                        <option value='cornflowerblue' selected>cornflowerblue</option>
-                        <option value='goldenrod'>goldenrod</option>
-                        <option value='white'>white</option>
-                        <option value='purple'>purple</option>
-                     </select>
 
-       Fill: <select id='fillStyleSelect'>
+<div data-role="page" id="page1">
+<div data-role="header" style="overflow:hidden;">
+<h1>I'm a header</h1>
+    <a href="#" data-icon="gear" id="eraseAllButton" class="ui-btn-right">New</a>
+    <div data-role="navbar">
+        <ul id="strokeColor">
+            <li>
+            <select name="strokeStyleSelect" id="strokeStyleSelect" data-native-menu="true">
+                        <option style="background-color:red" value='red'>Red</option>
+                        <option style="background-color:green"value='green'>Green</option>
+                        <option style="background-color:blue" value='blue'>Blue</option>
+                        <option style="background-color:orange" value='orange'>Orange</option>
+                        <option style="background-color:cornflowerblue" value='cornflowerblue' selected>Light Blue</option>
+                        <option style="background-color:goldenrod" value='goldenrod'>Gold</option>
+                        <option style="background-color:white" value='white'>White</option>
+                        <option style="background-color:purple" value='purple'>Purple</option>
+                     </select>
+            
+            </li>
+            <li>
+            <select id='fillStyleSelect'>
                       <option value='red'>red</option>
                       <option value='rgba(255,0,0,0.5)'>semi-transparent red</option>
                       <option value='green'>green</option>
@@ -289,27 +297,27 @@
                       <option value='purple'>purple</option>
                       <option value='rgba(255,0,255,0.5)'>semi-transparent purple</option>
                    </select>
-
-       Line width: <select id='lineWidthSelect'>
+            </li>
+            <li><select id='lineWidthSelect'>
                       <option value='1.0'>1.0</option>
                       <option value='2.0'>2.0</option>
                       <option value='3.0'>3.0</option>
                       <option value='4.0'>4.0</option>
                       <option value='5.0'>5.0</option>
                       <option value='6.0'>6.0</option>
-                   </select>
+                   </select></li>
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /header -->
 
-      <input id='eraseAllButton' type='button' value='New'/>
-      <input id='snapshotButton' type='button' value='Take snapshot' hidden='true'/>
-    </div>
-
+<div data-role="content" id="content" >
     <img id='snapshotImageElement'/>
     
     <canvas id='iconCanvas' width='75' height='670'>
       Canvas not supported
     </canvas>
 
-    <canvas id='drawingCanvas' width='650' height='670'>
+    <canvas id='drawingCanvas' width='640' height='670'>
       Canvas not supported
     </canvas>
 	<div id="wordBlock" style="text-align:center;margin:0px;padding:10%;"></div>
@@ -324,8 +332,11 @@
       <input id='curveInstructionsOkayButton' type='button' value='Okay'/>
       <input id='curveInstructionsNoMoreButton' type='button' value='Do not show this again'/>
     </div>
-    
+    </div>
+    </div><!-- //page -->
     <script src='js/keyboard.js'></script>
     <script src='js/example.js'></script>
+     <script>
+ </script>
   </body>
 </html>
