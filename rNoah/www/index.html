@@ -262,50 +262,34 @@
 
 <div data-role="page" id="page1">
 <div data-role="header" style="overflow:hidden;">
-<h1>Read! Noah Read!</h1>
+<h1>R<span style="text-transform: lowercase;">ead!</span>&nbsp; N<span style="text-transform: lowercase;">oah</span> R<span style="text-transform: lowercase;">ead!</span></h1>
     <a href="#" data-icon="gear" id="eraseAllButton" class="ui-btn-right">New</a>
     <div data-role="navbar">
         <ul>
             <li>
-            <select name="strokeStyleSelect" id="strokeStyleSelect" data-native-menu="false">
-                        <option style="color:red" value='red'>RED</option>
-                        <option style="background-color:green"value='green'>Green</option>
-                        <option style="background-color:blue" value='blue'>Blue</option>
-                        <option style="background-color:orange" value='orange'>Orange</option>
-                        <option style="background-color:cornflowerblue" value='cornflowerblue' selected>Light Blue</option>
-                        <option style="background-color:goldenrod" value='goldenrod'>Gold</option>
-                        <option style="background-color:white" value='white'>White</option>
-                        <option style="background-color:purple" value='purple'>Purple</option>
+            <select name="strokeStyleSelect" id="strokeStyleSelect" data-native-menu="false" >
+            			<option>COLOR...</option>
+                        <option id="RED" value='red' >RED</option>
+                        <option id="GREEN" value='green' >GREEN</option>
+                        <option id="BLUE" value='blue'>BLUE</option>
+                        <option id="ORANGE" value='orange' >ORANGE</option>
+                        <option id="GOLD" value='goldenrod' >GOLD</option>
+                        <option id="WHITE" value='white' >WHITE</option>
+                        <option id="PURPLE" value='purple' >PURPLE</option>
                      </select>
             
             </li>
-            <li>
-            <select id='fillStyleSelect' id="fillStyleSelect" data-native-menu="true">
-                      <option style="color:red" value='red'>red</option>
-                      <option value='rgba(255,0,0,0.5)'>semi-transparent red</option>
-                      <option value='green'>green</option>
-                      <option value='rgba(0,255,0,0.5)'>semi-transparent green</option>
-                      <option value='blue'>blue</option>
-                      <option value='rgba(0,0,255,0.5)'>semi-transparent blue</option>
-                      <option value='orange'>orange</option>
-                      <option value='rgba(255,165,0,0.5)'>semi-transparent orange</option>
-                      <option value='cornflowerblue'>cornflowerblue</option>
-                      <option value='rgba(100,140,230,0.5)'>semi-transparent cornflowerblue</option>
-                      <option value='goldenrod'>goldenrod</option>
-                      <option value='rgba(218,165,32,0.5)' selected>semi-transparent goldenrod</option>
-                      <option value='white'>white</option>
-                      <option value='rgba(255,255,255,0.5)'>semi-transparent white</option>
-                      <option value='purple'>purple</option>
-                      <option value='rgba(255,0,255,0.5)'>semi-transparent purple</option>
-                   </select>
-            </li>
             <li><select id='lineWidthSelect' id="lineWidthSelect" data-native-menu="false">
-                      <option value='1.0'>1.0</option>
-                      <option value='2.0'>2.0</option>
-                      <option value='3.0'>3.0</option>
-                      <option value='4.0'>4.0</option>
-                      <option value='5.0'>5.0</option>
-                      <option value='6.0'>6.0</option>
+                      <option>PENCIL...</option>
+                      <option id="1" value='1.0'>1.0</option>
+                      <option id="2" value='2.0'>2.0</option>
+                      <option id="3" value='3.0'>3.0</option> 
+                      <option id="4" value='4.0'>4.0</option>
+                      <option id="5" value='5.0'>5.0</option>
+                      <option id="6" value='6.0'>6.0</option>
+                      <option id="7" value='7.0'>7.0</option>
+                      <option id="8" value='8.0'>8.0</option>
+                      <option id="9" value='9.0'>9.0</option>
                    </select></li>
         </ul>
     </div><!-- /navbar -->
@@ -339,6 +323,43 @@
     <script src='js/keyboard.js'></script>
     <script src='js/example.js'></script>
      <script>
+$(document).on("pagecreate", function(){    
+    var opts = $("#lineWidthSelect option");
+    $( "#lineWidthSelect-listbox-popup" ).on( "popupafteropen", function( event, ui ) {
+        $("#lineWidthSelect-menu li").each(function(index){
+            
+            
+            if ($(this).find("img").length == 0){
+            //alert("ID = " + $(this).text());
+               // var imageURL = opts.eq(index).data("./img/A_above.png");
+                var imageURL = "img/" + $(this).text() +  ".png";
+                var imgElem = '<img src=' + imageURL + ' width="24px" height="24px" />';
+                $(this).find("a").prepend(imgElem + "  ");
+            }
+            
+            
+        });
+    });
+});
+
+$(document).on("pagecreate", function(){    
+    var opts = $("#strokeStyleSelect option");
+    $( "#strokeStyleSelect-listbox-popup" ).on( "popupafteropen", function( event, ui ) {
+        $("#strokeStyleSelect-menu li").each(function(index){
+            
+            
+            if ($(this).find("img").length == 0){
+            //alert("ID = " + $(this).text());
+               // var imageURL = opts.eq(index).data("./img/A_above.png");
+                var imageURL = "img/" + $(this).text() +  ".png";
+                var imgElem = '<img src=' + imageURL + ' width="24px" height="24px" />';
+                $(this).find("a").prepend(imgElem + "  ");
+            }
+            
+            
+        });
+    });
+});
  </script>
   </body>
 </html>

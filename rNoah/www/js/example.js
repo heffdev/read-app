@@ -1026,9 +1026,10 @@ strokeStyleSelect.onchange = function (e) {
    drawingContext.strokeStyle = strokeStyleSelect.value;
 };
 
-fillStyleSelect.onchange = function (e) {
-   drawingContext.fillStyle = fillStyleSelect.value;
-};
+
+//fillStyleSelect.onchange = function (e) {
+//   drawingContext.fillStyle = fillStyleSelect.value;
+//};
 
 lineWidthSelect.onchange = function (e) {
    drawingContext.lineWidth = lineWidthSelect.value;
@@ -1106,7 +1107,7 @@ drawingContext.font = '48px Palatino';
 drawingContext.textBaseline = 'bottom';
 
 drawingContext.strokeStyle = strokeStyleSelect.value;
-drawingContext.fillStyle = fillStyleSelect.value;
+//drawingContext.fillStyle = fillStyleSelect.value;
 drawingContext.lineWidth = lineWidthSelect.value;
 
 drawGrid(drawingContext, GRID_LINE_COLOR, 10, 10);

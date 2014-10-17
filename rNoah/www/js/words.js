@@ -56,8 +56,8 @@ var words = {
 		          		"longLetters" : ""
 		          	},
 		          	{
-		          		"letters" : "H,O,U,R,S,E",
-		          		"theWord" : "HOURSE",
+		          		"letters" : "H,O,R,S,E",
+		          		"theWord" : "HORSE",
 		          		"longLetters" : ""
 		          	},
 		          	{
