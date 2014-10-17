@@ -81,7 +81,7 @@
 		if(useWord === i) {
 			var letters = v.letters.split(",")
 			for(j = 0; j < letters.length; j++) {
-				wordBlockContent += '<img src="img/' + letters[j] + '_above.png" height="72" width="72" onclick="document.getElementById(\'' + letters[j] + '_Sound\').play()">';
+				wordBlockContent += '<img src="img/' + letters[j] + '_above.png" height="108" width="108" onclick="document.getElementById(\'' + letters[j] + '_Sound\').play()">';
 			}
 			
 		}
@@ -307,7 +307,7 @@
     <canvas id='drawingCanvas' width='640' height='670'>
       Canvas not supported
     </canvas>
-	<div id="wordBlock" style="text-align:center;margin:0px;padding:10%;"></div>
+	<div id="wordBlock" style="text-align:center;margin:0px;padding:5%;"></div>
     <div id='keyboard'></div>
     
     <div id='curveInstructions' class='floatingControls'>
@@ -335,7 +335,7 @@ $(document).on("pagecreate", function(){
             //alert("ID = " + $(this).text());
                // var imageURL = opts.eq(index).data("./img/A_above.png");
                 var imageURL = "img/" + $(this).text() +  ".png";
-                var imgElem = '<img src=' + imageURL + ' width="48px" height="48px" />';
+                var imgElem = '<img src=' + imageURL + ' width="72px" height="72px" />';
                 $(this).find("a").prepend(imgElem + "  ");
             }
             
