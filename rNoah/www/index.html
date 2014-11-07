@@ -85,11 +85,13 @@
 		if(useWord === i) {
 			var letters = v.letters.split(",")
 			for(j = 0; j < letters.length; j++) {
-				wordBlockContent += '<img src="img/' + letters[j] + '_above.png" height="108" width="108" onclick="document.getElementById(\'' + letters[j] + '_Sound\').play()">';
+				//wordBlockContent += '<img src="img/' + letters[j] + '_above.png" height="108" width="108" onclick="document.getElementById(\'' + letters[j] + '_Sound\').play()">';
+				wordBlockContent += '<a href="javascript:document.getElementById(\'' + letters[j] + '_Sound\').play()"><img src="img/' + letters[j] + '_above.png" height="108" width="108" onclick=""></a>';
 			}
 			
 		}
 		$("#wordBlock").html(wordBlockContent);
+		
 	});
 	
 }
