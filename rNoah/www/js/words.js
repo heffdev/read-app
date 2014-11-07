@@ -41,8 +41,8 @@ var words = {
 		          		"longLetters" : ""
 		          	},
 		          	{
-		          		"letters" : "R,U,N",
-		          		"theWord" : "RUN",
+		          		"letters" : "L,A,D,D,E,R",
+		          		"theWord" : "Ladder",
 		          		"longLetters" : ""
 		          	},
 		          	{
@@ -71,8 +71,8 @@ var words = {
 		          		"longLetters" : ""
 		          	},
 		          	{
-		          		"letters" : "F,L,Y",
-		          		"theWord" : "FLY",
+		          		"letters" : "C,H,A,I,R",
+		          		"theWord" : "CHAIR",
 		          		"longLetters" : ""
 		          	},
 		          	{
@@ -96,8 +96,43 @@ var words = {
 		          		"longLetters" : ""
 		          	},
 		          	{
-		          		"letters" : "G,L,A,S,S",
-		          		"theWord" : "GLASS",
+		          		"letters" : "S,N,A,I,L",
+		          		"theWord" : "SNAIL",
+		          		"longLetters" : ""
+		          	},
+		          	{
+		          		"letters" : "P,A,P,A",
+		          		"theWord" : "PAPA",
+		          		"longLetters" : ""
+		          	},
+		          	{
+		          		"letters" : "M,A,M,A",
+		          		"theWord" : "MAMA",
+		          		"longLetters" : ""
+		          	},
+		          	{
+		          		"letters" : "M,O,M",
+		          		"theWord" : "MOM",
+		          		"longLetters" : ""
+		          	},
+		          	{
+		          		"letters" : "D,A,D",
+		          		"theWord" : "DAD",
+		          		"longLetters" : ""
+		          	},
+		          	{
+		          		"letters" : "N,O,A,H",
+		          		"theWord" : "NOAH",
+		          		"longLetters" : ""
+		          	},
+		          	{
+		          		"letters" : "F,I,S,H",
+		          		"theWord" : "FISH",
+		          		"longLetters" : ""
+		          	},
+		          	{
+		          		"letters" : "S,N,A,K,E",
+		          		"theWord" : "SNAKE",
 		          		"longLetters" : ""
 		          	},
 		          ]
