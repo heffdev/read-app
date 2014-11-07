@@ -338,11 +338,11 @@ $(document).on("pagecreate", function(){
             
             
             if ($(this).find("img").length == 0){
-            //alert("ID = " + $(this).text());
-               // var imageURL = opts.eq(index).data("./img/A_above.png");
-                var imageURL = "img/" + $(this).text() +  ".png";
-                var imgElem = '<img src=' + imageURL + ' width="72px" height="72px" />';
-                $(this).find("a").prepend(imgElem + "  ");
+	            if($(this).text() != "COLOR...") {
+	                var imageURL = "img/" + $(this).text() +  ".png";
+	                var imgElem = '<img src=' + imageURL + ' width="72px" height="72px" />';
+	                $(this).find("a").prepend(imgElem + "  ");
+                }
             }
             
             
@@ -354,17 +354,13 @@ $(document).on("pagecreate", function(){
     var opts = $("#strokeStyleSelect option");
     $( "#strokeStyleSelect-listbox-popup" ).on( "popupafteropen", function( event, ui ) {
         $("#strokeStyleSelect-menu li").each(function(index){
-            
-            
             if ($(this).find("img").length == 0){
-            //alert("ID = " + $(this).text());
-               // var imageURL = opts.eq(index).data("./img/A_above.png");
-                var imageURL = "img/" + $(this).text() +  ".png";
-                var imgElem = '<img src=' + imageURL + ' width="24px" height="24px" />';
-                $(this).find("a").prepend(imgElem + "  ");
+              if($(this).text() != "PENCIL...") {
+	                var imageURL = "img/" + $(this).text() +  ".png";
+	                var imgElem = '<img src=' + imageURL + ' width="24px" height="24px" />';
+	                $(this).find("a").prepend(imgElem + "  ");
+	            }
             }
-            
-            
         });
     });
 });
